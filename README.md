@@ -14,6 +14,7 @@ Solution author: Pedro Silva dos Santos
 
 
 ## Requirements 
+It is assumed that you have Docker installed
 Meltano's Airflow plugin requires Python 3.9, see: [https://hub.meltano.com/orchestrators/airflow/](https://hub.meltano.com/orchestrators/airflow/) 
 
 > The version of Airflow currently installed with Meltano (2.1.2)
