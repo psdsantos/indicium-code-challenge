@@ -2,19 +2,22 @@
 # Solution for Indicium Tech Code Challenge 06/2024
 
 Challenge statement: [https://github.com/techindicium/code-challenge](https://github.com/techindicium/code-challenge)
+
 Solution author: Pedro Silva dos Santos
   
 
 ## Table of contents
 1. [Requirements](#requirements)
 2. [How to run](#how-to-run)
-3.  Airflow scheduling
-4. Results
-5. Implemention Details.
+3. [Airflow scheduling](#airflow-scheduling)
+4. [Results](#results)
+5. [Implemention Details](#implementation-details)
 
 
 ## Requirements 
-It is assumed that you have Docker installed
+
+It is assumed you have Docker installed. 
+
 Meltano's Airflow plugin requires Python 3.9, see: [https://hub.meltano.com/orchestrators/airflow/](https://hub.meltano.com/orchestrators/airflow/) 
 
 > The version of Airflow currently installed with Meltano (2.1.2)
@@ -190,7 +193,7 @@ This data type occurs in `orders.freight` and `products.unit_price` (in `northwi
 ```
 
 > `bpchar` data type is also not reconized, but the tap falls back to
-> string and everything goes well.	
+> string and everything goes well.  
 
 ### Configuration of `tap-csv-all`
  
