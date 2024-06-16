@@ -1,0 +1,12 @@
+customer_id;company_name;total_revenue;number_of_orders;avg_order_size
+LONEP;Lonesome Pine Restaurant;;14;
+OLDWO;Old World Delicatessen;;24;
+WARTH;Wartian Herkku;;37;
+MAGAA;Magazzini Alimentari Riuniti;;21;
+QUEEN;Queen Cozinha;;40;
+VINET;Vins et alcools Chevalier;;10;
+ANTON;Antonio Moreno Taquería;;17;
+MORGK;Morgenstern Gesundkost;;11;
+GOURL;Gourmet Lanchonetes;;19;
+TOMSP;Toms Spezialitäten;;14;
+(10 rows)

@@ -1,0 +1,111 @@
+2024-06-16 03:44:03,102 INFO - Task context logging is enabled
+2024-06-16 03:44:03,103 INFO - Loaded executor: SequentialExecutor
+2024-06-16 03:44:03,139 INFO - Starting the scheduler
+2024-06-16 03:44:03,140 INFO - Processing each file at most -1 times
+2024-06-16 03:44:03,146 INFO - Launched DagFileProcessorManager with pid: 577188
+2024-06-16 03:44:03,148 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 03:44:03,153 INFO - Configured default timezone UTC
+2024-06-16 03:44:07,508 INFO - DAG meltano_load-postgres-csv_postgres-to-csv is at (or above) max_active_runs (1 of 1), not creating any more runs
+2024-06-16 03:44:07,514 INFO - DAG meltano_load-details-csv_details-to-csv is at (or above) max_active_runs (1 of 1), not creating any more runs
+2024-06-16 03:44:07,519 INFO - DAG meltano_load-disk-postgres_disk-to-postgres is at (or above) max_active_runs (1 of 1), not creating any more runs
+2024-06-16 03:44:07,676 INFO - 3 tasks up for execution:
+	<TaskInstance: meltano_load-postgres-csv_postgres-to-csv.meltano_load-postgres-csv_postgres-to-csv_task0 scheduled__2024-06-15T00:00:00+00:00 [scheduled]>
+	<TaskInstance: meltano_load-details-csv_details-to-csv.meltano_load-details-csv_details-to-csv_task0 scheduled__2024-06-15T00:00:00+00:00 [scheduled]>
+	<TaskInstance: meltano_load-disk-postgres_disk-to-postgres.meltano_load-disk-postgres_disk-to-postgres_task0 scheduled__2024-06-15T00:05:00+00:00 [scheduled]>
+2024-06-16 03:44:07,676 INFO - DAG meltano_load-postgres-csv_postgres-to-csv has 0/16 running and queued tasks
+2024-06-16 03:44:07,677 INFO - DAG meltano_load-details-csv_details-to-csv has 0/16 running and queued tasks
+2024-06-16 03:44:07,677 INFO - DAG meltano_load-disk-postgres_disk-to-postgres has 0/16 running and queued tasks
+2024-06-16 03:44:07,678 INFO - Setting the following tasks to queued state:
+	<TaskInstance: meltano_load-postgres-csv_postgres-to-csv.meltano_load-postgres-csv_postgres-to-csv_task0 scheduled__2024-06-15T00:00:00+00:00 [scheduled]>
+	<TaskInstance: meltano_load-details-csv_details-to-csv.meltano_load-details-csv_details-to-csv_task0 scheduled__2024-06-15T00:00:00+00:00 [scheduled]>
+	<TaskInstance: meltano_load-disk-postgres_disk-to-postgres.meltano_load-disk-postgres_disk-to-postgres_task0 scheduled__2024-06-15T00:05:00+00:00 [scheduled]>
+2024-06-16 03:44:07,683 WARNING - cannot record scheduled_duration for task meltano_load-postgres-csv_postgres-to-csv_task0 because previous state change time has not been saved
+2024-06-16 03:44:07,683 WARNING - cannot record scheduled_duration for task meltano_load-details-csv_details-to-csv_task0 because previous state change time has not been saved
+2024-06-16 03:44:07,683 WARNING - cannot record scheduled_duration for task meltano_load-disk-postgres_disk-to-postgres_task0 because previous state change time has not been saved
+2024-06-16 03:44:07,684 INFO - Sending TaskInstanceKey(dag_id='meltano_load-postgres-csv_postgres-to-csv', task_id='meltano_load-postgres-csv_postgres-to-csv_task0', run_id='scheduled__2024-06-15T00:00:00+00:00', try_number=1, map_index=-1) to executor with priority 1 and queue default
+2024-06-16 03:44:07,685 INFO - Adding to queue: ['airflow', 'tasks', 'run', 'meltano_load-postgres-csv_postgres-to-csv', 'meltano_load-postgres-csv_postgres-to-csv_task0', 'scheduled__2024-06-15T00:00:00+00:00', '--local', '--subdir', 'DAGS_FOLDER/meltano_dag_generator.py']
+2024-06-16 03:44:07,688 INFO - Sending TaskInstanceKey(dag_id='meltano_load-details-csv_details-to-csv', task_id='meltano_load-details-csv_details-to-csv_task0', run_id='scheduled__2024-06-15T00:00:00+00:00', try_number=1, map_index=-1) to executor with priority 1 and queue default
+2024-06-16 03:44:07,689 INFO - Adding to queue: ['airflow', 'tasks', 'run', 'meltano_load-details-csv_details-to-csv', 'meltano_load-details-csv_details-to-csv_task0', 'scheduled__2024-06-15T00:00:00+00:00', '--local', '--subdir', 'DAGS_FOLDER/meltano_dag_generator.py']
+2024-06-16 03:44:07,689 INFO - Sending TaskInstanceKey(dag_id='meltano_load-disk-postgres_disk-to-postgres', task_id='meltano_load-disk-postgres_disk-to-postgres_task0', run_id='scheduled__2024-06-15T00:05:00+00:00', try_number=1, map_index=-1) to executor with priority 1 and queue default
+2024-06-16 03:44:07,690 INFO - Adding to queue: ['airflow', 'tasks', 'run', 'meltano_load-disk-postgres_disk-to-postgres', 'meltano_load-disk-postgres_disk-to-postgres_task0', 'scheduled__2024-06-15T00:05:00+00:00', '--local', '--subdir', 'DAGS_FOLDER/meltano_dag_generator.py']
+2024-06-16 03:44:07,698 INFO - Executing command: ['airflow', 'tasks', 'run', 'meltano_load-postgres-csv_postgres-to-csv', 'meltano_load-postgres-csv_postgres-to-csv_task0', 'scheduled__2024-06-15T00:00:00+00:00', '--local', '--subdir', 'DAGS_FOLDER/meltano_dag_generator.py']
+2024-06-16 03:44:20,736 INFO - Executing command: ['airflow', 'tasks', 'run', 'meltano_load-details-csv_details-to-csv', 'meltano_load-details-csv_details-to-csv_task0', 'scheduled__2024-06-15T00:00:00+00:00', '--local', '--subdir', 'DAGS_FOLDER/meltano_dag_generator.py']
+2024-06-16 03:44:32,345 INFO - Executing command: ['airflow', 'tasks', 'run', 'meltano_load-disk-postgres_disk-to-postgres', 'meltano_load-disk-postgres_disk-to-postgres_task0', 'scheduled__2024-06-15T00:05:00+00:00', '--local', '--subdir', 'DAGS_FOLDER/meltano_dag_generator.py']
+2024-06-16 03:44:57,842 INFO - Received executor event with state success for task instance TaskInstanceKey(dag_id='meltano_load-postgres-csv_postgres-to-csv', task_id='meltano_load-postgres-csv_postgres-to-csv_task0', run_id='scheduled__2024-06-15T00:00:00+00:00', try_number=1, map_index=-1)
+2024-06-16 03:44:57,843 INFO - Received executor event with state success for task instance TaskInstanceKey(dag_id='meltano_load-details-csv_details-to-csv', task_id='meltano_load-details-csv_details-to-csv_task0', run_id='scheduled__2024-06-15T00:00:00+00:00', try_number=1, map_index=-1)
+2024-06-16 03:44:57,843 INFO - Received executor event with state success for task instance TaskInstanceKey(dag_id='meltano_load-disk-postgres_disk-to-postgres', task_id='meltano_load-disk-postgres_disk-to-postgres_task0', run_id='scheduled__2024-06-15T00:05:00+00:00', try_number=1, map_index=-1)
+2024-06-16 03:44:57,871 INFO - TaskInstance Finished: dag_id=meltano_load-disk-postgres_disk-to-postgres, task_id=meltano_load-disk-postgres_disk-to-postgres_task0, run_id=scheduled__2024-06-15T00:05:00+00:00, map_index=-1, run_start_date=2024-06-16 06:44:42.218284+00:00, run_end_date=2024-06-16 06:44:57.143988+00:00, run_duration=14.925704, state=success, executor_state=success, try_number=1, max_tries=1, job_id=4, pool=default_pool, queue=default, priority_weight=1, operator=BashOperator, queued_dttm=2024-06-16 06:44:07.679798+00:00, queued_by_job_id=1, pid=577456
+2024-06-16 03:44:57,873 INFO - TaskInstance Finished: dag_id=meltano_load-details-csv_details-to-csv, task_id=meltano_load-details-csv_details-to-csv_task0, run_id=scheduled__2024-06-15T00:00:00+00:00, map_index=-1, run_start_date=2024-06-16 06:44:24.501637+00:00, run_end_date=2024-06-16 06:44:31.647383+00:00, run_duration=7.145746, state=success, executor_state=success, try_number=1, max_tries=1, job_id=3, pool=default_pool, queue=default, priority_weight=1, operator=BashOperator, queued_dttm=2024-06-16 06:44:07.679798+00:00, queued_by_job_id=1, pid=577343
+2024-06-16 03:44:57,874 INFO - TaskInstance Finished: dag_id=meltano_load-postgres-csv_postgres-to-csv, task_id=meltano_load-postgres-csv_postgres-to-csv_task0, run_id=scheduled__2024-06-15T00:00:00+00:00, map_index=-1, run_start_date=2024-06-16 06:44:11.974067+00:00, run_end_date=2024-06-16 06:44:20.346835+00:00, run_duration=8.372768, state=success, executor_state=success, try_number=1, max_tries=1, job_id=2, pool=default_pool, queue=default, priority_weight=1, operator=BashOperator, queued_dttm=2024-06-16 06:44:07.679798+00:00, queued_by_job_id=1, pid=577328
+2024-06-16 03:44:57,885 ERROR - DagFileProcessorManager (PID=577188) last sent a heartbeat 50.54 seconds ago! Restarting it
+2024-06-16 03:44:57,889 INFO - Sending Signals.SIGTERM to group 577188. PIDs of all processes in the group: [577188]
+2024-06-16 03:44:57,890 INFO - Sending the signal Signals.SIGTERM to group 577188
+2024-06-16 03:44:58,508 INFO - Process psutil.Process(pid=577188, status='terminated', exitcode=0, started='03:44:02') (577188) terminated with exit code 0
+2024-06-16 03:44:58,513 INFO - Launched DagFileProcessorManager with pid: 577479
+2024-06-16 03:44:58,524 INFO - Configured default timezone UTC
+2024-06-16 03:45:02,711 INFO - Marking run <DagRun meltano_load-details-csv_details-to-csv @ 2024-06-15 00:00:00+00:00: scheduled__2024-06-15T00:00:00+00:00, state:running, queued_at: 2024-06-16 06:44:07.511310+00:00. externally triggered: False> successful
+2024-06-16 03:45:02,713 INFO - DagRun Finished: dag_id=meltano_load-details-csv_details-to-csv, execution_date=2024-06-15 00:00:00+00:00, run_id=scheduled__2024-06-15T00:00:00+00:00, run_start_date=2024-06-16 06:44:07.533205+00:00, run_end_date=2024-06-16 06:45:02.713475+00:00, run_duration=55.18027, state=success, external_trigger=False, run_type=scheduled, data_interval_start=2024-06-15 00:00:00+00:00, data_interval_end=2024-06-16 00:00:00+00:00, dag_hash=070925bbdeb23d46c9c2db7c38a0459d
+2024-06-16 03:45:02,725 INFO - Setting next_dagrun for meltano_load-details-csv_details-to-csv to 2024-06-16 00:00:00+00:00, run_after=2024-06-17 00:00:00+00:00
+2024-06-16 03:45:02,734 INFO - Marking run <DagRun meltano_load-postgres-csv_postgres-to-csv @ 2024-06-15 00:00:00+00:00: scheduled__2024-06-15T00:00:00+00:00, state:running, queued_at: 2024-06-16 06:44:07.393886+00:00. externally triggered: False> successful
+2024-06-16 03:45:02,734 INFO - DagRun Finished: dag_id=meltano_load-postgres-csv_postgres-to-csv, execution_date=2024-06-15 00:00:00+00:00, run_id=scheduled__2024-06-15T00:00:00+00:00, run_start_date=2024-06-16 06:44:07.534070+00:00, run_end_date=2024-06-16 06:45:02.734601+00:00, run_duration=55.200531, state=success, external_trigger=False, run_type=scheduled, data_interval_start=2024-06-15 00:00:00+00:00, data_interval_end=2024-06-16 00:00:00+00:00, dag_hash=11a8ab522b55e60ca5c6aae98c518c7f
+2024-06-16 03:45:02,748 INFO - Setting next_dagrun for meltano_load-postgres-csv_postgres-to-csv to 2024-06-16 00:00:00+00:00, run_after=2024-06-17 00:00:00+00:00
+2024-06-16 03:45:02,755 INFO - Marking run <DagRun meltano_load-disk-postgres_disk-to-postgres @ 2024-06-15 00:05:00+00:00: scheduled__2024-06-15T00:05:00+00:00, state:running, queued_at: 2024-06-16 06:44:07.517019+00:00. externally triggered: False> successful
+2024-06-16 03:45:02,756 INFO - DagRun Finished: dag_id=meltano_load-disk-postgres_disk-to-postgres, execution_date=2024-06-15 00:05:00+00:00, run_id=scheduled__2024-06-15T00:05:00+00:00, run_start_date=2024-06-16 06:44:07.534339+00:00, run_end_date=2024-06-16 06:45:02.756304+00:00, run_duration=55.221965, state=success, external_trigger=False, run_type=scheduled, data_interval_start=2024-06-15 00:05:00+00:00, data_interval_end=2024-06-16 00:05:00+00:00, dag_hash=f0a3a6d786150617b0c3a7dcfcca287c
+2024-06-16 03:45:02,767 INFO - Setting next_dagrun for meltano_load-disk-postgres_disk-to-postgres to 2024-06-16 00:05:00+00:00, run_after=2024-06-17 00:05:00+00:00
+2024-06-16 03:49:03,216 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 03:54:03,255 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 03:59:03,342 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 04:04:03,621 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 04:09:03,669 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 04:14:03,709 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 04:19:03,818 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 04:24:03,863 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 04:29:03,894 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 12:43:07,224 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 12:48:07,270 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 12:53:07,315 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 12:58:07,341 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 13:03:07,368 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 13:08:07,401 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 13:13:07,418 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 13:18:07,435 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 13:23:07,457 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 13:28:07,484 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 13:33:07,514 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 13:38:07,545 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 13:43:08,232 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 13:48:08,253 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 13:53:08,274 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 13:58:08,294 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 14:03:08,332 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 14:08:08,367 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 14:13:08,377 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 14:18:08,416 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 14:23:08,458 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 14:28:08,514 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 14:33:08,541 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 14:38:08,574 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 14:43:08,585 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 14:48:11,604 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 14:53:11,620 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 14:58:11,646 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 15:03:11,677 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 15:08:11,697 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 15:13:11,714 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 15:18:11,798 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 15:23:11,819 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 15:28:11,843 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 15:33:11,875 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 15:38:11,907 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 15:43:11,945 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 15:48:11,979 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 15:53:12,016 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 15:58:12,047 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 16:03:12,056 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 16:08:12,083 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 16:13:12,096 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 16:18:12,114 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 16:23:12,141 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 16:28:12,211 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 16:33:12,246 INFO - Adopting or resetting orphaned tasks for active dag runs
+2024-06-16 16:38:12,261 INFO - Adopting or resetting orphaned tasks for active dag runs
