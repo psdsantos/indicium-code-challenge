@@ -18,6 +18,12 @@ Solution author: Pedro Silva dos Santos
 
 It is assumed you have Docker installed. 
 
+clone the repo:
+```
+git clone https://github.com/psdsantos/indicium-code-challenge
+cd indicium-code-challenge
+```
+
 Meltano's Airflow plugin requires Python 3.9, see: [https://hub.meltano.com/orchestrators/airflow/](https://hub.meltano.com/orchestrators/airflow/) 
 
 > The version of Airflow currently installed with Meltano (2.1.2)
