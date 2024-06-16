@@ -1,0 +1,185 @@
+version: 1
+default_environment: dev
+project_id: 49d7df7a-60ed-4b2d-bd07-61d102a74365
+environments:
+- name: dev
+- name: staging
+- name: prod
+plugins:
+  extractors:
+  - name: tap-csv-details
+    inherit_from: tap-csv
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
+    config: {files: [{entity: order_details, path: data/order_details.csv, keys: [
+            order_id, product_id], delimiter: ','}]}
+
+  - name: tap-postgres
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
+    config:
+      dbname: northwind
+      schema: public
+      database: northwind
+      host: localhost
+      port: 5432
+      user: northwind_user
+    select:
+    - public-*.*
+
+  - name: tap-csv-all
+    inherit_from: tap-csv
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
+    config:
+      files:
+      - entity: order_details
+        path: data/csv/$ARG_DATE/order_details.csv
+        delimiter: ;
+        keys:
+        - order_id
+        - product_id
+      - entity: categories
+        path: data/postgres/categories/$ARG_DATE/categories.csv
+        delimiter: ;
+        keys:
+        - category_id
+        # skipped emtpy tables
+        # customer_customer_demo
+        # customer_demographics
+      - entity: customers
+        path: data/postgres/customers/$ARG_DATE/customers.csv
+        delimiter: ;
+        keys: [customer_id]
+      - entity: employees
+        path: data/postgres/employees/$ARG_DATE/employees.csv
+        delimiter: ;
+        keys: [employee_id]
+      - entity: employee_territories
+        path: data/postgres/employee_territories/$ARG_DATE/employee_territories.csv
+        delimiter: ;
+        keys: [employee_id, territory_id]
+      - entity: orders
+        path: data/postgres/orders/$ARG_DATE/orders.csv
+        delimiter: ;
+        keys: [order_id]
+      - entity: products
+        path: data/postgres/products/$ARG_DATE/products.csv
+        delimiter: ;
+        keys: [product_id]
+      - entity: region
+        path: data/postgres/region/$ARG_DATE/region.csv
+        delimiter: ;
+        keys: [region_id]
+      - entity: shippers
+        path: data/postgres/shippers/$ARG_DATE/shippers.csv
+        delimiter: ;
+        keys: [shipper_id]
+      - entity: suppliers
+        path: data/postgres/suppliers/$ARG_DATE/suppliers.csv
+        delimiter: ;
+        keys: [supplier_id]
+      - entity: territories
+        path: data/postgres/territories/$ARG_DATE/territories.csv
+        delimiter: ;
+        keys: [territory_id]
+      - entity: us_states
+        path: data/postgres/us_states/$ARG_DATE/us_states.csv
+        delimiter: ;
+        keys: [state_id]
+
+
+
+  loaders:
+  - name: target-csv-details
+    inherit_from: target-csv
+    config:
+      delimiter: ;
+      destination_path: data/csv/
+  - name: target-csv-tables
+    inherit_from: target-csv
+    config:
+      delimiter: ;
+      destination_path: data/postgres/
+  - name: target-postgres
+    variant: transferwise
+    pip_url: pipelinewise-target-postgres
+    config:
+      dbname: targetdb
+      schema: public
+      database: targetdb
+      host: localhost
+      port: 5434
+      user: targetdb_user
+
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
+  - name: target-csv
+    variant: hotgluexyz
+    pip_url: git+https://github.com/hotgluexyz/target-csv.git
+    config:
+      delimiter: ;
+  utilities:
+  - name: airflow
+    variant: apache
+    pip_url: git+https://github.com/meltano/airflow-ext.git@main apache-airflow==2.8.1
+      --constraint 
+      https://raw.githubusercontent.com/apache/airflow/constraints-2.8.1/constraints-no-providers-${MELTANO__PYTHON_VERSION}.txt
+  - name: organiza_csv
+    namespace: organiza_csv
+    commands:
+      run_details:
+        args: py/organiza_details.py
+        executable: python
+      run_tables:
+        args: py/organiza_tables.py
+        executable: python
+  mappers:
+  - name: meltano-map-transformer
+    variant: meltano
+    pip_url: git+https://github.com/MeltanoLabs/meltano-map-transform.git
+    executable: meltano-map-transform
+    mappings:
+    - name: handle-real-dt
+      config:
+        stream_maps:
+          public-orders:
+            freight: float(freight)
+          public-products:
+            unit_price: float(unit_price)
+jobs:
+- name: details-to-csv
+  tasks:
+  - tap-csv-details target-csv-details organiza_csv:run_details
+- name: postgres-to-csv
+  tasks:
+  - tap-postgres handle-real-dt target-csv-tables organiza_csv:run_tables
+- name: disk-to-postgres
+  tasks:
+  - tap-csv-all target-postgres
+- name: full-pipeline
+  tasks:
+    # details-to-csv
+  - tap-csv-details target-csv-details organiza_csv:run_details 
+    # postgres-to-csv
+  - tap-postgres handle-real-dt target-csv-tables organiza_csv:run_tables
+    # disk-to-postgres
+  - tap-csv-all target-postgres
+
+
+
+
+schedules:
+- name: load-details-csv
+  interval: '0 0 * * *'
+  job: details-to-csv
+
+- name: load-postgres-csv
+  interval: '0 0 * * *'
+  job: postgres-to-csv
+
+  # wait 5 minutes for disk loading
+- name: load-disk-postgres
+  interval: '5 0 * * *'
+  job: disk-to-postgres
